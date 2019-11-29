@@ -26,4 +26,8 @@ VPC and EC3 setting up using Boto 3. The configuration looks like this:
   * Create a Key pair for private and public EC2 instances
   * Create 2 Segurity group(for private/public)
   * Simple Start-up Sript for our Public EC2 Instance
+  * Describe EC2 instance
+  * Modify EC2 instance
+  * Stop EC2 instance
+  * Terminate EC2 instace
   
