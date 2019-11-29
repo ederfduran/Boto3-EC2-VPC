@@ -31,3 +31,6 @@ VPC and EC3 setting up using Boto 3. The configuration looks like this:
   * Stop EC2 instance
   * Terminate EC2 instace
   
+
+For further Information you can always check boto3 documentation
+[Boto3 doc](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) 
