@@ -17,11 +17,11 @@ VPC and EC3 setting up using Boto 3. The configuration looks like this:
   * Internet Gateway creation(IGW)
   * Attached IGW to VPC
   * Create a Public Subnet
-  * Create Route Table for public Rou*tes
+  * Create Route Table for public Routes
   * Add IGW Route to Route table
   * Associate Public Subnet with Public Route Table
   * Allowed Ip Auto-assign on Public Subnet
-  * Create Private Subnet
+  * Create Private Subnet(with default route table)
 * EC2
   * Create a Key pair for private and public EC2 instances
   * Create 2 Segurity group(for private/public)
