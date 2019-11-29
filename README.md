@@ -4,14 +4,14 @@ VPC and EC3 setting up using Boto 3. The configuration looks like this:
 
 ![Scheme](https://github.com/ederfduran/Boto3-EC2-VPC/blob/master/ec2-vpc.png)
 
-####Requirements:
+#### Requirements:
 * Python 3.6
 * Boto3
 * AWS CLI
 * AWS account
 
 
-####Content Includes :
+#### Content Includes :
 
 * VPC creation
   * Internet Gateway creation(IGW)
