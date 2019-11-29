@@ -49,3 +49,32 @@ class EC2:
             UserData=user_data
 
         )
+
+    def describe_ec2_instances(self):
+        print('Describing EC2 Instances...')
+        return self._client.describe_instances()
+
+    def modify_ec2_instance(self, instance_id):
+        print('Modifying EC2 Instance ' + instance_id)
+        return self._client.modify_instance_attribute(
+            InstanceId=instance_id,
+            DisableApiTermination={'Value': True}
+        )
+
+    def stop_instance(self, instance_id):
+        print('Stopping EC2 Instance ' + instance_id)
+        return self._client.stop_instances(
+            InstanceIds=[instance_id]
+        )
+
+    def start_instance(self, instance_id):
+        print('Starting EC2 Instance ' + instance_id)
+        return self._client.start_instances(
+            InstanceIds=[instance_id]
+        )
+
+    def terminate_instance(self, instance_id):
+        print('Terminating EC2 Instance ' + instance_id)
+        return self._client.terminate_instances(
+            InstanceIds=[instance_id]
+        )

@@ -74,13 +74,6 @@ def manage_ec2(ec2_client,vpc_id,public_subnet_id,private_subnet_id):
     ec2.add_inbound_rule_to_sg(public_security_group_id)
     print('Added public access rule to Security group'+ public_security_group_name)
 
-    user_data= """#!/bin/bash 
-                yum update -y
-                yum install httpd24 -y
-                service httpd start
-                chkconfig httpd on
-                echo "<html><body><h1>Hello from <b>Boto3</b> using Python! </h1></body></html>" > /var/www/html/index.html"""
-
     user_data= """#!/bin/bash
                 yum update -y
                 yum install httpd24 -y
@@ -107,10 +100,49 @@ def manage_ec2(ec2_client,vpc_id,public_subnet_id,private_subnet_id):
      # Launch a private EC2 Instance
     ec2.launch_ec2_instance(ami_id, key_pair_name, 1, 1, private_security_group_id, private_subnet_id, """""")
 
+def describe_instances():
+    ec2_client = EC2Client().get_client()
+    ec2 = EC2(ec2_client)
+
+    ec2_response = ec2.describe_ec2_instances()
+
+    print(str(ec2_response))
+
+
+def modify_instance():
+    ec2_client = EC2Client().get_client()
+    ec2 = EC2(ec2_client)
+
+    ec2.modify_ec2_instance('i-0c30ba0fa434dcb51')
+
+
+def stop_instance():
+    ec2_client = EC2Client().get_client()
+    ec2 = EC2(ec2_client)
+
+    ec2.stop_instance('i-0c30ba0fa434dcb51')
+
+
+def start_instance():
+    ec2_client = EC2Client().get_client()
+    ec2 = EC2(ec2_client)
+
+    ec2.start_instance('i-0c30ba0fa434dcb51')
+
+
+def terminate_instance():
+    ec2_client = EC2Client().get_client()
+    ec2 = EC2(ec2_client)
+
+    ec2.terminate_instance('i-0c30ba0fa434dcb51')
 
 
 def main():
-    manage_vpc()
+    #manage_vpc()
+    # describe_instances()
+    # modify_instance()
+    # start_instance()
+    terminate_instance()
     
     
 if __name__== '__main__':
